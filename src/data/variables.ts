@@ -78,8 +78,19 @@ export interface VariableDefinition {
  */
 export const variableDefinitions: Record<string, VariableDefinition> = {
     // ========================================
-    // ADD YOUR VARIABLES HERE
+    // EXPONENTIAL GROWTH VARIABLES
     // ========================================
+
+    expBase: {
+        defaultValue: 2,
+        type: 'number',
+        label: 'Base',
+        description: 'The base of the exponential function',
+        min: 1.1,
+        max: 4,
+        step: 0.1,
+        color: '#f97316',
+    },
 
     // Uncomment and modify these examples for your lesson:
 

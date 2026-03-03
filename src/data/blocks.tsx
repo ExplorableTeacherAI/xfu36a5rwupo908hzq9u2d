@@ -1,7 +1,12 @@
 import { type ReactElement } from "react";
 import { Block } from "@/components/templates";
-import { StackLayout } from "@/components/layouts";
+import { StackLayout, SplitLayout } from "@/components/layouts";
 import { EditableParagraph } from "@/components/atoms/text/EditableParagraph";
+import { EditableH2 } from "@/components/atoms/text/EditableHeadings";
+import { InlineScrubbleNumber } from "@/components/atoms/text/InlineScrubbleNumber";
+import { Cartesian2D } from "@/components/atoms/visual/Cartesian2D";
+import { getVariableInfo, numberPropsFromDefinition } from "./variables";
+import { useVar } from "@/stores";
 
 // Initialize variables and their colors from this file's variable definitions
 import { useVariableStore, initializeVariableColors } from "@/stores";
@@ -100,4 +105,71 @@ export const blocks: ReactElement[] = [
             </EditableParagraph>
         </Block>
     </StackLayout>,
+    <StackLayout key="layout-exp-title" maxWidth="xl">
+        <Block id="block-exp-title" padding="md">
+            <EditableH2 id="h2-exp-title" blockId="block-exp-title">
+                Exponential Growth: Watch Numbers Explode
+            </EditableH2>
+        </Block>
+    </StackLayout>,
+    <SplitLayout key="layout-exp-graph" ratio="1:1" gap="lg">
+        <Block id="block-exp-text" padding="md">
+            <EditableParagraph id="para-exp-text" blockId="block-exp-text">
+                Exponential growth starts slow, then suddenly takes off. The function y = base^x grows faster and faster as x increases. Try changing the base below and watch how dramatically the curve changes shape.
+            </EditableParagraph>
+            <EditableParagraph id="para-exp-scrub" blockId="block-exp-text">
+                With base{" "}
+                <InlineScrubbleNumber
+                    id="scrub-exp-base"
+                    varName="expBase"
+                    {...numberPropsFromDefinition(getVariableInfo('expBase'))}
+                />
+                , when x = 5, the value is already{" "}
+                <ExpValue />.
+                {" "}Notice how even small changes to the base create huge differences in the result!
+            </EditableParagraph>
+        </Block>
+        <Block id="block-exp-viz" padding="md">
+            <ExpGraph />
+        </Block>
+    </SplitLayout>,
 ];
+
+// Helper component to display computed exponential value
+function ExpValue() {
+    const base = useVar('expBase', 2) as number;
+    const value = Math.pow(base, 5);
+    return (
+        <span
+            className="font-semibold"
+            style={{ color: '#f97316' }}
+        >
+            {value.toFixed(1)}
+        </span>
+    );
+}
+
+// Helper component for the exponential graph
+function ExpGraph() {
+    const base = useVar('expBase', 2) as number;
+    return (
+        <Cartesian2D
+            height={350}
+            viewBox={{ x: [-1, 6], y: [-5, 50] }}
+            plots={[
+                {
+                    type: "function",
+                    fn: (x: number) => Math.pow(base, x),
+                    color: "#f97316",
+                    weight: 3,
+                },
+                {
+                    type: "function",
+                    fn: (x: number) => x,
+                    color: "#94a3b8",
+                    weight: 1,
+                },
+            ]}
+        />
+    );
+}
