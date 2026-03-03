@@ -1,6 +1,7 @@
 import { type ReactElement } from "react";
-// import { Block } from "@/components/templates";
-// import { StackLayout, SplitLayout, GridLayout, ScrollytellingLayout, ScrollStep, ScrollVisual } from "@/components/layouts";
+import { Block } from "@/components/templates";
+import { StackLayout } from "@/components/layouts";
+import { EditableParagraph } from "@/components/atoms/text/EditableParagraph";
 
 // Initialize variables and their colors from this file's variable definitions
 import { useVariableStore, initializeVariableColors } from "@/stores";
@@ -85,5 +86,11 @@ initializeVariableColors(variableDefinitions);
  */
 
 export const blocks: ReactElement[] = [
-    // Start adding your blocks here!
+    <StackLayout key="layout-intro" maxWidth="xl">
+        <Block id="block-intro" padding="md">
+            <EditableParagraph id="para-intro" blockId="block-intro">
+                Mathematics comes alive when students can touch it, change it, and see the consequences unfold before their eyes. Interactive learning transforms abstract symbols into living ideas — when a student drags a number and watches a graph reshape itself, they are not just observing mathematics, they are doing it. This hands-on discovery is what makes concepts stick and curiosity spark.
+            </EditableParagraph>
+        </Block>
+    </StackLayout>,
 ];
