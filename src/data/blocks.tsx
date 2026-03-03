@@ -98,13 +98,6 @@ export const blocks: ReactElement[] = [
             </EditableParagraph>
         </Block>
     </StackLayout>,
-    <StackLayout key="layout-1772505937191" maxWidth="xl">
-        <Block id="block-1772505937191" padding="md">
-            <EditableParagraph id="para-1772505937191" blockId="block-1772505937191">
-                Learning by doing is at the heart of mathematical understanding. When students actively manipulate equations, construct geometric shapes, or experiment with numerical patterns, they build intuition that no amount of passive reading can provide. Each mistake becomes a teacher, each success a stepping stone. The act of doing — dragging, clicking, adjusting, predicting — transforms mathematics from a spectator sport into a playground of ideas where every learner is an explorer.
-            </EditableParagraph>
-        </Block>
-    </StackLayout>,
     <StackLayout key="layout-exp-title" maxWidth="xl">
         <Block id="block-exp-title" padding="md">
             <EditableH2 id="h2-exp-title" blockId="block-exp-title">
@@ -133,6 +126,13 @@ export const blocks: ReactElement[] = [
             <ExpGraph />
         </Block>
     </SplitLayout>,
+    <StackLayout key="layout-1772505937191" maxWidth="xl">
+        <Block id="block-1772505937191" padding="md">
+            <EditableParagraph id="para-1772505937191" blockId="block-1772505937191">
+                Learning by doing is at the heart of mathematical understanding. When students actively manipulate equations, construct geometric shapes, or experiment with numerical patterns, they build intuition that no amount of passive reading can provide. Each mistake becomes a teacher, each success a stepping stone. The act of doing — dragging, clicking, adjusting, predicting — transforms mathematics from a spectator sport into a playground of ideas where every learner is an explorer.
+            </EditableParagraph>
+        </Block>
+    </StackLayout>,
 ];
 
 // Helper component to display computed exponential value
