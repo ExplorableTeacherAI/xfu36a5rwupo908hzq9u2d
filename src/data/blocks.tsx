@@ -133,6 +133,13 @@ export const blocks: ReactElement[] = [
             </EditableParagraph>
         </Block>
     </StackLayout>,
+    <StackLayout key="layout-1772506875245" maxWidth="xl">
+        <Block id="block-1772506875245" padding="md">
+            <EditableParagraph id="para-1772506875245" blockId="block-1772506875245">
+                Mathematics was not invented — it was discovered, born from humanity's earliest attempts to make sense of the world. Ancient Babylonians tracked the stars and developed arithmetic over 4,000 years ago. The Egyptians measured their lands with geometry after each Nile flood. The Greeks transformed these practical tools into an art of pure reasoning, giving us proofs and theorems that still hold true today. From counting pebbles to exploring infinity, the story of mathematics is the story of human curiosity reaching beyond the obvious to uncover hidden patterns in nature.
+            </EditableParagraph>
+        </Block>
+    </StackLayout>,
 ];
 
 // Helper component to display computed exponential value
